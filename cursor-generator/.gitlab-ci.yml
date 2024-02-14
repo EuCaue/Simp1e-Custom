@@ -1,0 +1,72 @@
+stages:
+  - build
+
+build-alpine:
+  stage: build
+  image: alpine:edge
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - apk add --no-cache bash font-noto xz
+    - apk add --no-cache rsvg-convert py3-pillow xcursorgen
+  script:
+    - test/build.sh -a -p
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - test/generated_svgs/*
+      - test/built_themes/*
+      - test/previews/*
+
+build-fedora:
+  stage: build
+  image: fedora:latest
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - dnf install -y google-noto-sans-vf-fonts xz
+    - dnf install -y librsvg2-tools python3-pillow xcursorgen
+  script:
+    - test/build.sh -a -p
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - test/generated_svgs/*
+      - test/built_themes/*
+      - test/previews/*
+
+build-ubuntu:
+  stage: build
+  image: ubuntu:latest
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - apt update
+    - apt install -y fonts-noto-core
+    - apt install -y librsvg2-bin python3-willow x11-apps
+  script:
+    - test/build.sh -a -p
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - test/generated_svgs/*
+      - test/built_themes/*
+      - test/previews/*
+
+build-arch:
+  stage: build
+  image: archlinux:latest
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - pacman -Sy
+    - pacman -S --noconfirm noto-fonts
+    - pacman -S --noconfirm librsvg python-pillow xorg-xcursorgen
+  script:
+    - test/build.sh -a -p
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - test/generated_svgs/*
+      - test/built_themes/*
+      - test/previews/*

@@ -1,0 +1,4 @@
+# cursor name alias database
+# format: filename link1 link2 etc.
+
+cursor1 symlink1 symlink2 

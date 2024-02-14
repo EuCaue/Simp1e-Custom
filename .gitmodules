@@ -1,0 +1,3 @@
+[submodule "cursor-generator"]
+	path = cursor-generator
+	url = https://gitlab.com/cursors/cursor-generator

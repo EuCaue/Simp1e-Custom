@@ -1,0 +1,7 @@
+name:Dark
+
+shadow:000000
+shadow_opacity:0.35
+
+background:333333
+border:DDDDDD

@@ -1,0 +1,7 @@
+name:Light
+
+shadow:000000
+shadow_opacity:0.35
+
+background:DDDDDD
+border:333333
