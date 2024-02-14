@@ -1,6 +1,6 @@
 # Simp1e Cursors
 
-<big>this is a custom version of the original Simp1e cursor theme</big>
+<h1>this is a custom version of the original Simp1e cursor theme</h1>
 
 An aesthetic cursor theme for Linux desktops.
 
